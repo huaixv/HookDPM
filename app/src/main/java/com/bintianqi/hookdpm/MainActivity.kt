@@ -36,7 +36,6 @@ class MainActivity : ComponentActivity() {
             val darkTheme = isSystemInDarkTheme()
             val view = LocalView.current
             SideEffect {
-                window.statusBarColor = Color.Transparent.toArgb()
                 WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
             }
             if(VERSION.SDK_INT >= 31) {

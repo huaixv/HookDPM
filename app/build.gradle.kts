@@ -1,17 +1,18 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ksp)
 }
 
 android {
     namespace = "com.bintianqi.hookdpm"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.bintianqi.hookdpm"
         minSdk = 23
-        targetSdk = 34
+        targetSdk = 36
         versionName = "1.1"
         versionCode = 2
     }
