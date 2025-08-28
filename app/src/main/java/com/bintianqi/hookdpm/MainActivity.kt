@@ -103,6 +103,7 @@ private fun Home() {
             var hookCPP by remember { mutableStateOf(false) }
             var hideIcon by remember { mutableStateOf(false) }
             var bypassAccountCheck by remember { mutableStateOf(false) }
+            var workProfileDetection by remember { mutableStateOf(false) }
             LaunchedEffect(Unit) {
                 if (active) {
                     forceDO = context.prefs().getBoolean("force_do", false)
@@ -110,6 +111,7 @@ private fun Home() {
                     hookIPA = context.prefs().getBoolean("hook_ipa", false)
                     hookCPP = context.prefs().getBoolean("hook_cpp", false)
                     bypassAccountCheck = context.prefs().getBoolean("bypass_account_check", false)
+                    workProfileDetection = context.prefs().getBoolean("work_profile_detection", false)
                 }
                 hideIcon = isLauncherIconHiding(context)
             }
@@ -141,6 +143,14 @@ private fun Home() {
                     onCheckedChange = {
                         context.prefs().edit { putBoolean("bypass_account_check", it) }
                         bypassAccountCheck = it
+                    }
+                )
+                SwitchItem(
+                    text = stringResource(R.string.work_profile_detection),
+                    checked = workProfileDetection,
+                    onCheckedChange = {
+                        context.prefs().edit { putBoolean("work_profile_detection", it) }
+                        workProfileDetection = it
                     }
                 )
                 Spacer(Modifier.padding(vertical = 10.dp))

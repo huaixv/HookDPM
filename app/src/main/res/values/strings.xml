@@ -11,5 +11,6 @@
     <string name="danger_zone">Danger zone</string>
     <string name="always_allow_provisioning">Always allow provisioning</string>
     <string name="skip_provisioning_check">Skip provisioning check</string>
+    <string name="work_profile_detection">Bypass work profile detection</string>
 
 </resources>

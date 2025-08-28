@@ -8,6 +8,7 @@ import com.highcapable.yukihookapi.hook.type.java.IntType
 import com.highcapable.yukihookapi.hook.type.java.StringClass
 import com.highcapable.yukihookapi.hook.type.java.UnitType
 import com.highcapable.yukihookapi.hook.xposed.proxy.IYukiHookXposedInit
+import java.util.Collections
 
 @InjectYukiHookWithXposed
 object HookEntry : IYukiHookXposedInit {
@@ -99,6 +100,16 @@ object HookEntry : IYukiHookXposedInit {
                     after {
                         if (prefs.getBoolean("hook_cpp", false)) {
                             result = 0
+                        }
+                    }
+                }
+                method {
+                    name = "getActiveAdmins"
+                    param(IntType)
+                }.hook {
+                    after {
+                        if (prefs.getBoolean("work_profile_detection", false)) {
+                            result = Collections.EMPTY_LIST
                         }
                     }
                 }
